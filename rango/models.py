@@ -6,6 +6,8 @@ class Category(models.Model):
     views = models.IntegerField(default=0)
     likes = models.IntegerField(default=0)
     slug = models.SlugField(unique=True)
+    NAME_MAX_LENGTH = 128
+    URL_MAX_LENGTH = 200
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
